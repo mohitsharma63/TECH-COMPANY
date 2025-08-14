@@ -3,6 +3,7 @@ import { Phone, Eye, Medal, Cog, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 
 const floatingElements = [
   { size: "w-16 h-16", position: "top-20 left-10", delay: 0 },

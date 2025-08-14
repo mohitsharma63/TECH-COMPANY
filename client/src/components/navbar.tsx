@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, Phone, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Eye } from "lucide-react";
-import { motion } from "framer-motion";
+import { Link, useLocation } from "wouter";
 
 const navigationItems = [
-  { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,14 +26,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <motion.nav
@@ -59,16 +53,15 @@ export function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navigationItems.map((item, index) => (
-                <motion.button
+                <Link
                   key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="hover:text-primary transition-colors duration-200 font-medium"
+                  href={item.href}
+                  className={`transition-colors duration-200 font-medium ${
+                    location === item.href ? "text-primary" : "hover:text-primary"
+                  }`}
                 >
                   {item.name}
-                </motion.button>
+                </Link>
               ))}
             </div>
           </div>
@@ -101,13 +94,18 @@ export function Navbar() {
                     <span className="text-2xl font-bold gradient-text">Synarion</span>
                   </div>
                   {navigationItems.map((item) => (
-                    <button
+                    <Link
                       key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-left py-2 text-lg hover:text-primary transition-colors"
+                      href={item.href}
+                      className={`transition-colors font-medium text-lg ${
+                        location === item.href
+                          ? "text-primary font-semibold"
+                          : "text-left py-2 text-lg hover:text-primary transition-colors"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </button>
+                    </Link>
                   ))}
                   <div className="pt-4 space-y-3">
                     <Button className="w-full bg-gradient-primary">
