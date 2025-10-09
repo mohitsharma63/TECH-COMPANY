@@ -120,10 +120,10 @@ export function Navbar() {
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-slate-900/95 backdrop-blur-xl border-l border-white/10">
-                <div className="flex flex-col space-y-6 mt-8">
-                  <div className="mb-4">
-                    <Logo size="md" showText={true} />
+              <SheetContent side="right" className="w-[280px] sm:w-[350px] bg-slate-900/95 backdrop-blur-xl border-l border-white/10 overflow-y-auto">
+                <div className="flex flex-col space-y-4 sm:space-y-6 mt-6 sm:mt-8 pb-6">
+                  <div className="mb-2 sm:mb-4">
+                    <Logo size="sm" showText={true} />
                   </div>
                   {navigationItems.map((item, index) => (
                     <motion.div
@@ -134,7 +134,7 @@ export function Navbar() {
                     >
                       <Link
                         href={item.href}
-                        className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium text-lg ${
+                        className={`block px-4 py-2.5 sm:py-3 rounded-lg transition-all duration-300 font-medium text-base sm:text-lg ${
                           location === item.href
                             ? "text-white bg-gradient-primary"
                             : "text-slate-300 hover:text-white hover:bg-white/10"
@@ -145,13 +145,13 @@ export function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
-                  <div className="pt-6 space-y-3 border-t border-white/10">
-                    <Button className="w-full bg-gradient-primary hover:scale-105 transition-all duration-300 py-6">
-                      <Phone className="w-5 h-5 mr-2" />
+                  <div className="pt-4 sm:pt-6 space-y-3 border-t border-white/10">
+                    <Button className="w-full bg-gradient-primary hover:scale-105 transition-all duration-300 py-5 sm:py-6 text-sm sm:text-base">
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       Let's Discuss
                     </Button>
-                    <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 py-6">
-                      <Eye className="w-5 h-5 mr-2" />
+                    <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 py-5 sm:py-6 text-sm sm:text-base">
+                      <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       View Portfolio
                     </Button>
                   </div>

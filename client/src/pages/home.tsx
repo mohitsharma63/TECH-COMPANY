@@ -63,17 +63,17 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 px-4"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Why <span className="gradient-text">Global Clients</span> Choose CodeRaft India
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
             🇮🇳 India's Premier Development Partner - World-Class Quality at Competitive Pricing
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -83,17 +83,17 @@ const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
-                className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 bg-white/5 backdrop-blur-sm border border-white/10 cursor-pointer group"
+                className="glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:scale-105 transition-all duration-300 bg-white/5 backdrop-blur-sm border border-white/10 cursor-pointer group"
                 role="article"
                 aria-label={feature.title}
               >
-                <div className={`bg-gradient-to-r ${feature.color} p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" aria-hidden="true" />
+                <div className={`bg-gradient-to-r ${feature.color} p-3 sm:p-4 rounded-lg sm:rounded-xl w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-300">
+                <p className="text-sm sm:text-base text-slate-300">
                   {feature.description}
                 </p>
               </motion.div>
@@ -127,12 +127,10 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main id="main-content" className="pb-0">
-        <HeroSection />
-        <AwardsSection />
+         <HeroSection />
+        <AwardsSection /> 
         <WhyChooseUs />
-        <MissionVisionSection />
         <IndustriesSection />
-        <ContactSection />
         <Services />
 
       </main>
