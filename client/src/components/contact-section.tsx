@@ -28,7 +28,7 @@ export function ContactSection() {
               </span>
             </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-6">
-              Why Choose <span className="gradient-text">Synarion IT Solutions?</span>
+              Why Choose <span className="gradient-text">CodeRaft IndiaIT Solutions?</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               🏆 <strong>Award-Winning Excellence:</strong> ISO 9001:2015 Certified with 50+ Industry Awards

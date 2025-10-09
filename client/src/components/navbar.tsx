@@ -34,8 +34,8 @@ export function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-black/95 backdrop-blur-xl shadow-lg border-b border-slate-200"
-          : "bg-black/90 backdrop-blur-sm border-b border-slate-100"
+          ? "bg-gradient-to-r from-violet-950 via-purple-950 to-indigo-950 backdrop-blur-xl shadow-lg border-b border-violet-500/20"
+          : "bg-gradient-to-r from-violet-950/95 via-purple-950/95 to-indigo-950/95 backdrop-blur-sm border-b border-violet-500/10"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export function Navbar() {
                     className={`relative px-4 py-2 rounded-lg transition-all duration-300 font-medium text-base ${
                       location === item.href
                         ? "text-white bg-gradient-primary"
-                        : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
+                        : "text-slate-200 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     {item.name}
@@ -104,7 +104,7 @@ export function Navbar() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-slate-700 hover:bg-slate-100">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>

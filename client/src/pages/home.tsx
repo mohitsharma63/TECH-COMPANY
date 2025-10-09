@@ -5,7 +5,6 @@ import  AwardsSection  from "@/components/awards-section";
 import { ServicesSection } from "@/components/services-section";
 import { MissionVisionSection } from "@/components/mission-vision-section";
 import { StatsSection } from "@/components/stats-section";
-import { PortfolioSection } from "@/components/portfolio-section";
 import { IndustriesSection } from "@/components/industries-section";
 import { TechnologiesSection } from "@/components/technologies-section";
 import { ContactSection } from "@/components/contact-section";
@@ -13,6 +12,7 @@ import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { motion } from "framer-motion";
 import { Shield, Zap, Award, HeadphonesIcon, Globe, TrendingUp } from "lucide-react";
+import Services from "./services";
 
 const WhyChooseUs = () => {
   const features = [
@@ -109,12 +109,9 @@ export default function Home() {
       <HeroSection />
       <AwardsSection />
       <WhyChooseUs />
-      <ServicesSection />
+      <Services />
       <MissionVisionSection />
-      <StatsSection />
-      <PortfolioSection />
       <IndustriesSection />
-      <TechnologiesSection />
       <ContactSection />
       <Footer />
       <ScrollToTop />

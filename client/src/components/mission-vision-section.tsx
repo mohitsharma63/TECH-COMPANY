@@ -27,7 +27,7 @@ export function MissionVisionSection() {
               Driving Innovation Through <span className="gradient-text">Technology</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              At Synarion IT Solutions, our mission is to harness the power of technology to drive innovation and empower businesses worldwide. Established in 2017, we boast a dedicated team of over 50 talented professionals, committed to delivering results-driven digital solutions.
+              At CodeRaft IndiaIT Solutions, our mission is to harness the power of technology to drive innovation and empower businesses worldwide. Established in 2017, we boast a dedicated team of over 50 talented professionals, committed to delivering results-driven digital solutions.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
               With a track record of 500+ successful projects and counting, we prioritize client satisfaction above all else. Our relentless pursuit of excellence ensures that we consistently provide quality services.
@@ -83,7 +83,7 @@ export function MissionVisionSection() {
               Global Leadership in <span className="gradient-text">Digital Transformation</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              Our vision at Synarion IT Solutions is to be a globally recognized leader in digital transformation, renowned for our unwavering commitment to innovation, excellence, and client satisfaction.
+              Our vision at CodeRaft IndiaIT Solutions is to be a globally recognized leader in digital transformation, renowned for our unwavering commitment to innovation, excellence, and client satisfaction.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
               We strive to continuously push boundaries, leveraging cutting-edge technologies and strategic insights to drive sustainable growth and success for our clients worldwide.
