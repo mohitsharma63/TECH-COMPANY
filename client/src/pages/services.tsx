@@ -378,8 +378,7 @@ export default function Services() {
         </div>
       </section>
 
-      <Footer />
-      <ScrollToTop />
+     
     </div>
   );
 }

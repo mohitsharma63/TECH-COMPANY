@@ -17,102 +17,165 @@ export function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  const services = [
+    {
+      title: "Mobile app Development",
+      items: [
+        { icon: "📱", name: "iPhone" },
+        { icon: "🤖", name: "Android" },
+        { icon: "📲", name: "iPad" },
+        { icon: "⚡", name: "React Native" },
+        { icon: "🔷", name: "Ionic" },
+        { icon: "🦋", name: "Flutter" },
+        { icon: "🔄", name: "Hybrid" },
+        { icon: "🎨", name: "Mobile UI/UX" }
+      ]
+    },
+    {
+      title: "Web Development",
+      items: [
+        { icon: "🐘", name: "PHP" },
+        { icon: "☕", name: "Java" },
+        { icon: "💛", name: "JavaScript" },
+        { icon: "🟢", name: "Node" },
+        { icon: "📚", name: "Full Stack" },
+        { icon: "📝", name: "Wordpress" },
+        { icon: "🍃", name: "Spring Boot" },
+        { icon: "⚛️", name: "Reactjs" }
+      ]
+    },
+    {
+      title: "Software Consulting",
+      items: [
+        { icon: "👥", name: "CRM" },
+        { icon: "📊", name: "BI" },
+        { icon: "🏢", name: "ERP" },
+        { icon: "☁️", name: "Cloud" },
+        { icon: "🔧", name: "Middleware" }
+      ]
+    },
+    {
+      title: "Microsoft Solutions",
+      items: [
+        { icon: "🌐", name: "ASP.Net" },
+        { icon: "📋", name: "Sharepoint" },
+        { icon: "☁️", name: "Azure" },
+        { icon: "🔶", name: "AWS" },
+        { icon: "💼", name: "Dynamics CRM" },
+        { icon: "🏪", name: "Sitecore CMS" },
+        { icon: "📱", name: "Site CRM" }
+      ]
+    }
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-900 overflow-hidden pt-20">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 -left-4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
-        <div className="absolute top-0 -right-4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" />
-      </div>
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden pt-24">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-grid-slate-100/50" />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-white/[0.02]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 gap-12">
+          {/* Main Headline */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="text-center max-w-4xl mx-auto space-y-6"
           >
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-morphism border animate-pulse-ring"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/30 backdrop-blur-sm"
             >
-              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <Sparkles className="w-5 h-5 text-violet-400" />
+              <span className="text-sm font-bold text-violet-300">
                 🇮🇳 India's Premier Development Partner
               </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="text-white">Crafting Tomorrow's</span>
-                <br />
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                  Digital Masterpieces
-                </span>
-              </h1>
-            </motion.div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="text-slate-800">Building Digital</span>
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Excellence Together
+              </span>
+            </h1>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl"
-            >
-              Where innovation meets expertise. We transform bold ideas into powerful digital solutions that drive growth, enhance user experiences, and revolutionize industries.
-            </motion.p>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Transform your vision into reality with world-class software solutions. ISO certified quality, innovative technology, and exceptional support.
+            </p>
+          </motion.div>
 
-            {/* Stats Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="grid grid-cols-3 gap-4"
-            >
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:border-purple-500/30 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  {projectsCount}+
-                </div>
-                <div className="text-sm text-slate-400 mt-1">Projects</div>
+          {/* Services Grid - Asian Style Layout */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-200">
+              {services.map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + idx * 0.1 }}
+                  className="p-6 hover:bg-slate-50 transition-colors"
+                >
+                  <h3 className="text-lg font-bold text-slate-800 mb-4 pb-2 border-b-2 border-blue-600">
+                    {service.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.items.map((item, itemIdx) => (
+                      <li
+                        key={itemIdx}
+                        className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer group"
+                      >
+                        <span className="text-lg group-hover:scale-110 transition-transform">
+                          {item.icon}
+                        </span>
+                        <span className="text-sm font-medium">{item.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Stats and CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          >
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-4">
+              <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
+                <div className="text-3xl font-bold text-blue-600">{projectsCount}+</div>
+                <div className="text-xs text-slate-600 mt-1">Projects</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:border-cyan-500/30 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  {clientsCount}+
-                </div>
-                <div className="text-sm text-slate-400 mt-1">Clients</div>
+              <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
+                <div className="text-3xl font-bold text-purple-600">{clientsCount}+</div>
+                <div className="text-xs text-slate-600 mt-1">Clients</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:border-purple-500/30 transition-all">
-                <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  {teamCount}+
-                </div>
-                <div className="text-sm text-slate-400 mt-1">Experts</div>
+              <div className="text-center p-4 bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl">
+                <div className="text-3xl font-bold text-pink-600">{teamCount}+</div>
+                <div className="text-xs text-slate-600 mt-1">Experts</div>
               </div>
-            </motion.div>
+              <div className="text-center p-4 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl">
+                <div className="text-3xl font-bold text-emerald-600">98%</div>
+                <div className="text-xs text-slate-600 mt-1">Client Satisfaction</div>
+              </div>
+            </div>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
               <Button
                 size="lg"
-                className="group bg-gradient-primary hover:bg-gradient-accent text-white border-0 glow-primary hover:glow-secondary transition-all duration-500 px-8 py-7 text-base font-semibold animate-gradient"
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 px-8 py-6 text-base font-semibold"
               >
                 <Phone className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                 Start Your Project
@@ -121,84 +184,32 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/5 backdrop-blur-sm text-white border-white/20 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 px-8 py-6"
+                className="bg-white text-slate-700 border-2 border-slate-300 hover:bg-slate-50 hover:border-blue-600 transition-all duration-300 px-8 py-6"
               >
                 <Eye className="w-5 h-5 mr-2" />
                 View Our Work
               </Button>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="flex items-center gap-6 pt-4"
-            >
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm text-slate-300">ISO Certified</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-amber-400" />
-                <span className="text-sm text-slate-300">24/7 Support</span>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* Right Visual */}
+          {/* Trust Indicators */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative hidden lg:block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="flex items-center justify-center gap-8 pt-4"
           >
-            <div className="relative">
-              {/* Main Image Container */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10"
-              >
-                <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20" />
-                  <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
-                    alt="Team collaboration"
-                    className="relative w-full h-auto"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Floating Cards */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-6 -left-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 shadow-2xl z-20"
-              >
-                <div className="text-white">
-                  <div className="text-3xl font-bold">98%</div>
-                  <div className="text-sm opacity-90 mt-1">Client Satisfaction</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 }}
-                className="absolute -top-6 -right-6 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl p-6 shadow-2xl z-20"
-              >
-                <div className="text-white">
-                  <div className="text-3xl font-bold">5+</div>
-                  <div className="text-sm opacity-90 mt-1">Years Experience</div>
-                </div>
-              </motion.div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%]">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl" />
-              </div>
+            <div className="flex items-center gap-2">
+              <Shield className="w-5 h-5 text-emerald-600" />
+              <span className="text-sm font-medium text-slate-700">ISO Certified</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Zap className="w-5 h-5 text-amber-600" />
+              <span className="text-sm font-medium text-slate-700">24/7 Support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-blue-600" />
+              <span className="text-sm font-medium text-slate-700">5+ Years Experience</span>
             </div>
           </motion.div>
         </div>

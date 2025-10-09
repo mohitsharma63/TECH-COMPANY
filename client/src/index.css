@@ -97,12 +97,15 @@
 
   .service-card {
     @apply transition-all duration-500 ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .service-card:hover {
-    @apply -translate-y-3;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    transform: translateY(-12px) rotateX(2deg);
+    @apply -translate-y-4;
+    box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3), 
+                0 0 40px rgba(139, 92, 246, 0.1);
+    transform: translateY(-16px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.3);
   }
 
   .floating-element {
@@ -152,6 +155,20 @@
   .glass-morphism {
     @apply glass-effect;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  .neo-brutalism {
+    box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .smooth-gradient {
+    background: linear-gradient(135deg, 
+      hsl(262, 83%, 58%) 0%, 
+      hsl(282, 83%, 55%) 50%, 
+      hsl(189, 94%, 43%) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
   }
 
   .glow-primary {

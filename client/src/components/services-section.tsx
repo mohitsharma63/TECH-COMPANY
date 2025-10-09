@@ -8,7 +8,7 @@ const services = [
     icon: Smartphone,
     title: "Mobile App Development",
     description: "ISO 9001:2015 Certified Mobile Application Development Company with 50+ developers",
-    gradient: "from-blue-500 to-purple-600",
+    gradient: "from-violet-600 to-purple-600",
     technologies: [
       { name: "iOS", icon: "🍎" },
       { name: "Android", icon: "🤖" },
