@@ -100,6 +100,21 @@ const portfolioItems = [
     icon: Code2,
     livePreview: "https://preview.codecanyon.net/item/restaurant-pos-pointofsale/full_screen_preview/7749129",
     features: ["POS System", "Online Orders", "Kitchen Display", "Inventory Control"]
+  },
+  {
+    title: "Smart Billing & Invoicing System",
+    description: "Complete billing solution with GST, inventory management, multi-currency support and automated invoicing",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["React", "Node.js", "PostgreSQL", "PDF Gen", "Reports"],
+    category: "Finance & Accounting",
+    year: "2025",
+    client: "BizAccounts Solutions",
+    results: "85% time savings",
+    rating: "5.0★",
+    gradient: "from-indigo-600 to-blue-600",
+    icon: BarChart3,
+    livePreview: "https://preview.codecanyon.net/item/ultimate-invoice/full_screen_preview/13290916",
+    features: ["Invoice Generation", "GST Compliance", "Expense Tracking", "Payment Records"]
   }
 ];
 

@@ -128,9 +128,9 @@ export default function Home() {
       <Navbar />
       <main id="main-content" className="pb-0">
          <HeroSection />
-        <AwardsSection /> 
-        <WhyChooseUs />
         <IndustriesSection />
+
+        <WhyChooseUs />
         <Services />
 
       </main>
