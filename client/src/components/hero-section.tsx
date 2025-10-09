@@ -67,7 +67,9 @@ export function HeroSection() {
       ]
     }
   ];
-
+const handleRedirect = () => {
+    window.location.href = "/portfolio"; // 👈 यहां अपनी desired URL डालें
+  };
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden pt-24">
       {/* Subtle Background Pattern */}
@@ -184,6 +186,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
+                onClick={handleRedirect}
                 className="bg-white text-slate-700 border-2 border-slate-300 hover:bg-slate-50 hover:border-blue-600 transition-all duration-300 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base w-full sm:w-auto"
               >
                 <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />

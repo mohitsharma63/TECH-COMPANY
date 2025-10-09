@@ -50,19 +50,12 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    primary: "hello@coderaft.in",
+    primary: "coderaftindia@gmail.com",
     secondary: "24/7 Support",
     color: "from-purple-500 to-pink-500",
-    action: "mailto:hello@coderaft.in"
+    action: "mailto:coderaftindia@gmail.com"
   },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    primary: "India 🇮🇳",
-    secondary: "Serving Globally",
-    color: "from-orange-500 to-red-500",
-    action: "#map"
-  }
+ 
 ];
 
 const stats = [
@@ -135,7 +128,7 @@ export default function Contact() {
       {/* Contact Cards */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {contactInfo.map((info, index) => (
               <motion.a
                 key={index}
@@ -181,13 +174,50 @@ export default function Contact() {
 
                   <form className="space-y-6" onSubmit={(e) => {
                     e.preventDefault();
-                    alert('Thank you for your message! We will get back to you within 24 hours.');
+                    const formData = new FormData(e.currentTarget);
+                    const firstName = formData.get('firstName');
+                    const lastName = formData.get('lastName');
+                    const email = formData.get('email');
+                    const phone = formData.get('phone');
+                    const subject = formData.get('subject');
+                    const message = formData.get('message');
+                    
+                    // Create detailed email body
+                    const emailBody = `
+Contact Form Submission from CodeRaft India Website
+========================================
+
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+
+Subject: ${subject}
+
+Message:
+${message}
+
+========================================
+Sent from: CodeRaft India Contact Form
+Timestamp: ${new Date().toLocaleString()}
+                    `;
+                    
+                    // Create mailto link with proper formatting
+                    const mailtoLink = `mailto:coderaftindia@gmail.com?subject=${encodeURIComponent(`Website Contact: ${subject}`)}&body=${encodeURIComponent(emailBody)}`;
+                    
+                    // Open mailto link
+                    window.location.href = mailtoLink;
+                    
+                    // Show success message (optional - you can add toast notification)
+                    setTimeout(() => {
+                      alert('Thank you! Your default email client should open. Please send the email to complete your message submission.');
+                    }, 500);
                   }}>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="firstName" className="text-slate-700 font-semibold">First Name *</Label>
                         <Input 
-                          id="firstName" 
+                          id="firstName"
+                          name="firstName"
                           placeholder="John" 
                           required
                           aria-required="true"
@@ -197,7 +227,8 @@ export default function Contact() {
                       <div className="space-y-2">
                         <Label htmlFor="lastName" className="text-slate-700 font-semibold">Last Name *</Label>
                         <Input 
-                          id="lastName" 
+                          id="lastName"
+                          name="lastName"
                           placeholder="Doe" 
                           required
                           aria-required="true"
@@ -209,7 +240,8 @@ export default function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-slate-700 font-semibold">Email Address *</Label>
                       <Input 
-                        id="email" 
+                        id="email"
+                        name="email"
                         type="email" 
                         placeholder="john@example.com" 
                         required
@@ -221,7 +253,8 @@ export default function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="phone" className="text-slate-700 font-semibold">Phone Number</Label>
                       <Input 
-                        id="phone" 
+                        id="phone"
+                        name="phone"
                         type="tel" 
                         placeholder="+91 (XXX) XXX-XXXX" 
                         className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
@@ -231,7 +264,8 @@ export default function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="subject" className="text-slate-700 font-semibold">Subject *</Label>
                       <Input 
-                        id="subject" 
+                        id="subject"
+                        name="subject"
                         placeholder="How can we help you?" 
                         required
                         aria-required="true"
@@ -242,7 +276,8 @@ export default function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="message" className="text-slate-700 font-semibold">Message *</Label>
                       <Textarea 
-                        id="message" 
+                        id="message"
+                        name="message"
                         placeholder="Tell us about your project..."
                         rows={6}
                         required

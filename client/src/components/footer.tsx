@@ -9,6 +9,8 @@ const services = [
   "UI/UX Design"
 ];
 
+const contactEmail = "coderaftindia@gmail.com";
+
 const socialLinks = [
   { icon: Facebook, href: "#", color: "hover:bg-blue-600" },
   { icon: Twitter, href: "#", color: "hover:bg-blue-400" },
@@ -38,7 +40,7 @@ export function Footer() {
               className="text-slate-300 mb-6 leading-relaxed"
             >
               Leading Indian software development company crafting innovative digital solutions 
-              for businesses worldwide since 2020. Your trusted technology partner.
+              for businesses worldwide since 2025. Your trusted technology partner.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -96,11 +98,11 @@ export function Footer() {
               </li>
               <li className="flex items-center">
                 <Mail className="w-4 h-4 mr-3 text-primary" />
-                info@synarionit.com
+                coderaftindia@gmail.com
               </li>
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 mr-3 text-primary mt-1" />
-                <span>India, Australia & Global Locations</span>
+                <span>India</span>
               </li>
             </ul>
           </motion.div>
@@ -114,7 +116,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 CodeRaft India. All rights reserved. Made with ❤️ in India
+              © 2025 CodeRaft India. All rights reserved. Made with ❤️ in India
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-slate-400">
               <a href="#" className="hover:text-white transition-colors">

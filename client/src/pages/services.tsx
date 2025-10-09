@@ -49,15 +49,7 @@ const serviceCategories = [
         pricing: "Starting from $3,000",
         popular: true
       },
-      {
-        icon: Gamepad2,
-        title: "Game Development",
-        description: "Immersive gaming experiences across multiple platforms",
-        features: ["2D/3D Games", "Mobile Gaming", "VR/AR Experiences", "Multiplayer Systems", "Game Monetization"],
-        technologies: ["Unity", "Unreal Engine", "C#", "WebGL", "Blender"],
-        pricing: "Starting from $8,000",
-        popular: false
-      }
+     
     ]
   },
   {
@@ -99,42 +91,42 @@ const serviceCategories = [
         pricing: "Starting from $4,500",
         popular: false
       },
-      {
-        icon: Lock,
-        title: "Cybersecurity",
-        description: "Protect your digital assets with enterprise-grade security",
-        features: ["Security Audits", "Penetration Testing", "Compliance", "Threat Monitoring", "Incident Response"],
-        technologies: ["OWASP", "Nessus", "Burp Suite", "Wireshark", "Splunk"],
-        pricing: "Starting from $6,000",
-        popular: false
-      }
+      // {
+      //   icon: Lock,
+      //   title: "Cybersecurity",
+      //   description: "Protect your digital assets with enterprise-grade security",
+      //   features: ["Security Audits", "Penetration Testing", "Compliance", "Threat Monitoring", "Incident Response"],
+      //   technologies: ["OWASP", "Nessus", "Burp Suite", "Wireshark", "Splunk"],
+      //   pricing: "Starting from $6,000",
+      //   popular: false
+      // }
     ]
   },
-  {
-    category: "Data & AI",
-    icon: Brain,
-    color: "from-emerald-500 to-teal-600",
-    services: [
-      {
-        icon: Database,
-        title: "Data Analytics",
-        description: "Transform raw data into actionable business insights",
-        features: ["Data Visualization", "Business Intelligence", "Real-time Analytics", "Predictive Modeling", "Custom Dashboards"],
-        technologies: ["Python", "R", "Tableau", "Power BI", "Apache Spark"],
-        pricing: "Starting from $5,500",
-        popular: false
-      },
-      {
-        icon: Brain,
-        title: "AI & Machine Learning",
-        description: "Intelligent solutions powered by cutting-edge AI technology",
-        features: ["Natural Language Processing", "Computer Vision", "Recommendation Systems", "Chatbots", "Predictive Analytics"],
-        technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenAI", "Hugging Face"],
-        pricing: "Starting from $7,500",
-        popular: true
-      }
-    ]
-  }
+  // {
+  //   category: "Data & AI",
+  //   icon: Brain,
+  //   color: "from-emerald-500 to-teal-600",
+  //   services: [
+  //     {
+  //       icon: Database,
+  //       title: "Data Analytics",
+  //       description: "Transform raw data into actionable business insights",
+  //       features: ["Data Visualization", "Business Intelligence", "Real-time Analytics", "Predictive Modeling", "Custom Dashboards"],
+  //       technologies: ["Python", "R", "Tableau", "Power BI", "Apache Spark"],
+  //       pricing: "Starting from $5,500",
+  //       popular: false
+  //     },
+  //     {
+  //       icon: Brain,
+  //       title: "AI & Machine Learning",
+  //       description: "Intelligent solutions powered by cutting-edge AI technology",
+  //       features: ["Natural Language Processing", "Computer Vision", "Recommendation Systems", "Chatbots", "Predictive Analytics"],
+  //       technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenAI", "Hugging Face"],
+  //       pricing: "Starting from $7,500",
+  //       popular: true
+  //     }
+  //   ]
+  // }
 ];
 
 const processSteps = [

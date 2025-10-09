@@ -38,10 +38,10 @@ const teamMembers = [
 ];
 
 const milestones = [
-  { year: "2018", title: "Company Founded", description: "Started with a vision to transform digital experiences" },
-  { year: "2020", title: "Global Expansion", description: "Expanded operations to 10+ countries worldwide" },
-  { year: "2022", title: "ISO Certified", description: "Achieved ISO 9001:2015 quality certification" },
-  { year: "2024", title: "Industry Leader", description: "Recognized as top innovator with 500+ projects delivered" }
+  { year: "2025", title: "Company Founded", description: "Started with a vision to transform digital experiences" },
+  { year: "2025", title: "Rapid Growth", description: "Building innovative solutions for clients worldwide" },
+  { year: "2025", title: "Quality Excellence", description: "Committed to ISO 9001:2015 quality standards" },
+  { year: "2025", title: "Innovation Focus", description: "Delivering cutting-edge technology solutions" }
 ];
 
 const values = [
@@ -140,77 +140,7 @@ export default function About() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <Badge className="bg-violet-500/10 text-violet-600 mb-4">Our Journey</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                From Startup to <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Industry Leader</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                What began as a small team of passionate developers in 2018 has evolved into a global technology powerhouse. We started with a simple belief: that exceptional digital experiences can transform businesses.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Today, we're proud to serve clients across 10+ countries, delivering innovative solutions that drive real business results. Our journey is defined by continuous innovation, unwavering quality, and a commitment to our clients' success.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  "ISO 9001:2015 Certified Quality",
-                  "500+ Successful Projects",
-                  "98% Client Retention Rate",
-                  "24/7 Global Support"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span className="text-muted-foreground">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Our team collaboration"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-violet-600/20 to-transparent" />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-2xl max-w-xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <TrendingUp className="w-8 h-8 text-emerald-500" />
-                  <div>
-                    <p className="text-2xl font-bold text-emerald-500">300%</p>
-                    <p className="text-sm text-muted-foreground">Growth in 2024</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
+     
       {/* Values Section */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
