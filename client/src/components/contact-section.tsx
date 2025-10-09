@@ -28,10 +28,16 @@ export function ContactSection() {
               </span>
             </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-6">
-              Ready to Transform Your <span className="gradient-text">Business?</span>
+              Why Choose <span className="gradient-text">Synarion IT Solutions?</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              At Synarion IT Solutions, our mission is to harness the power of technology to drive innovation and empower businesses worldwide. Established in 2017, we're ready to help you achieve your digital transformation goals.
+              🏆 <strong>Award-Winning Excellence:</strong> ISO 9001:2015 Certified with 50+ Industry Awards
+              <br />
+              💼 <strong>Proven Track Record:</strong> 500+ Successful Projects Delivered Globally
+              <br />
+              ⚡ <strong>Expert Team:</strong> 50+ Senior Developers & Designers at Your Service
+              <br />
+              🌍 <strong>Global Reach:</strong> Serving Clients in 10+ Countries Since 2017
             </p>
 
             {/* Quick Stats */}
@@ -57,10 +63,10 @@ export function ContactSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-gradient-primary hover:scale-105 transition-all duration-300 text-lg px-8 py-4"
+                className="bg-gradient-primary hover:scale-105 transition-all duration-300 text-lg px-8 py-4 shadow-xl"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Get In Touch
+                Get FREE Consultation
               </Button>
               <Button
                 variant="outline"
@@ -68,7 +74,7 @@ export function ContactSection() {
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 text-lg px-8 py-4"
               >
                 <Briefcase className="w-5 h-5 mr-2" />
-                View Portfolio
+                View Success Stories
               </Button>
             </div>
           </motion.div>

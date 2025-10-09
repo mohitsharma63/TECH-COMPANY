@@ -1,102 +1,86 @@
-import { Trophy, Smartphone, Code, Gamepad } from "lucide-react";
+
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useIntersectionObserver } from "@/hooks/use-scroll-animations";
+import { 
+  Heart, Trophy, Building, UtensilsCrossed, GraduationCap, Users,
+  Car, Home, ShoppingCart, Shirt, Truck, Hotel
+} from "lucide-react";
 
-const awards = [
-  {
-    icon: Trophy,
-    title: "Highly Recommended Software Company 2025",
-    gradient: "from-blue-50 to-indigo-100",
-    iconColor: "text-amber-500",
-  },
-  {
-    icon: Smartphone,
-    title: "Top Mobile App Development Company 2024",
-    gradient: "from-purple-50 to-pink-100",
-    iconColor: "text-purple-500",
-  },
-  {
-    icon: Code,
-    title: "Top Web Development Company 2024",
-    gradient: "from-emerald-50 to-teal-100",
-    iconColor: "text-emerald-500",
-  },
-  {
-    icon: Gamepad,
-    title: "Top Game Development Company 2025",
-    gradient: "from-orange-50 to-red-100",
-    iconColor: "text-orange-500",
-  },
-];
-
-export function AwardsSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(ref, { threshold: 0.2 });
+export default function IndustriesSection() {
+  const industries = [
+    { icon: Heart, name: "Healthcare & Fitness", color: "from-rose-500 to-pink-500" },
+    { icon: Trophy, name: "Sports", color: "from-emerald-500 to-teal-500" },
+    { icon: Building, name: "Banking & Finance", color: "from-blue-500 to-cyan-500" },
+    { icon: UtensilsCrossed, name: "Food & Restaurant", color: "from-orange-500 to-amber-500" },
+    { icon: GraduationCap, name: "Education", color: "from-purple-500 to-violet-500" },
+    { icon: Users, name: "Social Networking", color: "from-pink-500 to-rose-500" },
+    { icon: Car, name: "Automobile", color: "from-slate-600 to-slate-700" },
+    { icon: Home, name: "Real Estate", color: "from-cyan-500 to-blue-500" },
+    { icon: ShoppingCart, name: "Retail", color: "from-green-500 to-emerald-500" },
+    { icon: Shirt, name: "Fashion & Ecommerce", color: "from-fuchsia-500 to-purple-500" },
+    { icon: Truck, name: "Transport", color: "from-indigo-500 to-blue-500" },
+    { icon: Hotel, name: "Hotel", color: "from-amber-500 to-orange-500" }
+  ];
 
   return (
-    <section ref={ref} className="py-20 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-cyan-50/30" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">
-            Our <span className="gradient-text">Awards</span> & Recognition
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/20 backdrop-blur-sm mb-6"
+          >
+            <Building className="w-4 h-4 text-purple-600" />
+            <span className="text-sm font-medium text-purple-700">Industries We Serve</span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Industries We{" "}
+            <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-cyan-600 bg-clip-text text-transparent">
+              Serve
+            </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Celebrating Excellence: A Legacy of Awards and Recognitions
+            Building the Future - Development & Coding Talent Redefining Industries
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {awards.map((award, index) => {
-            const Icon = award.icon;
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {industries.map((industry, index) => {
+            const Icon = industry.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={
-                  isVisible
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 50 }
-                }
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="text-center hover-lift cursor-pointer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05, duration: 0.5 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="group"
               >
-                <div
-                  className={`bg-gradient-to-br ${award.gradient} p-6 rounded-2xl mb-4 hover:shadow-lg transition-shadow duration-300`}
-                >
-                  <Icon className={`text-4xl ${award.iconColor} mb-4 mx-auto`} />
-                  <h3 className="font-semibold text-sm text-slate-700">
-                    {award.title}
+                <div className="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-transparent shadow-md hover:shadow-xl transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
+                    {industry.name}
                   </h3>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
-        {/* Partners Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-semibold mb-8 text-slate-700">
-            Our Payment Partners
-          </h3>
-          <div className="flex justify-center items-center space-x-12 opacity-60">
-            <div className="text-2xl font-bold text-purple-600">PhonePe</div>
-            <div className="text-2xl font-bold text-blue-600">Cashfree</div>
-            <div className="text-lg font-semibold text-slate-600">
-              FIFS Member
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

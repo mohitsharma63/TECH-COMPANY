@@ -2,282 +2,325 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { ContactSection } from "@/components/contact-section";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  MessageSquare, 
   Send,
+  CheckCircle2,
   Globe,
-  Linkedin,
-  Twitter,
-  Facebook
+  MessageCircle,
+  Users,
+  Award,
+  TrendingUp,
+  Zap
 } from "lucide-react";
+
+// WhatsApp SVG Icon Component
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+);
 
 const contactInfo = [
   {
-    icon: MapPin,
-    title: "Our Location",
-    details: ["123 Tech Street", "Innovation District", "San Francisco, CA 94107"]
+    icon: Phone,
+    title: "Call Us",
+    primary: "+91-7300353111",
+    secondary: "Mon-Fri 9AM-6PM IST",
+    color: "from-blue-500 to-cyan-500",
+    action: "tel:+917300353111"
   },
   {
-    icon: Phone,
-    title: "Phone Numbers",
-    details: ["+1 (555) 123-4567", "+1 (555) 987-6543"]
+    icon: WhatsAppIcon,
+    title: "WhatsApp",
+    primary: "+91-7300353111",
+    secondary: "Chat with us 24/7",
+    color: "from-green-500 to-emerald-500",
+    action: "https://wa.me/917300353111?text=Hi, I'm interested in CodeRaft India services"
   },
   {
     icon: Mail,
-    title: "Email Addresses",
-    details: ["hello@techcompany.com", "support@techcompany.com"]
+    title: "Email Us",
+    primary: "hello@coderaft.in",
+    secondary: "24/7 Support",
+    color: "from-purple-500 to-pink-500",
+    action: "mailto:hello@coderaft.in"
   },
   {
-    icon: Clock,
-    title: "Business Hours",
-    details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 10:00 AM - 4:00 PM", "Sun: Closed"]
+    icon: MapPin,
+    title: "Visit Us",
+    primary: "India 🇮🇳",
+    secondary: "Serving Globally",
+    color: "from-orange-500 to-red-500",
+    action: "#map"
   }
 ];
 
-const socialLinks = [
-  { icon: Linkedin, name: "LinkedIn", url: "#" },
-  { icon: Twitter, name: "Twitter", url: "#" },
-  { icon: Facebook, name: "Facebook", url: "#" },
-  { icon: Globe, name: "Website", url: "#" }
-];
-
-const services = [
-  "Mobile App Development",
-  "Web Development",
-  "Game Development",
-  "UI/UX Design",
-  "Cloud Solutions",
-  "Data Analytics",
-  "Consulting"
+const stats = [
+  { icon: Users, value: "500+", label: "Projects Delivered" },
+  { icon: Award, value: "98%", label: "Client Satisfaction" },
+  { icon: TrendingUp, value: "50+", label: "Expert Team" },
+  { icon: Zap, value: "24/7", label: "Support Available" }
 ];
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
-              Ready to transform your ideas into reality? Let's start the conversation
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full mb-6"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span className="font-semibold">Let's Start a Conversation</span>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent">
+              Get in Touch
+            </h1>
+            
+            <p className="text-xl text-slate-600 mb-8">
+              Transform your vision into reality. Our team is ready to bring your ideas to life.
             </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="text-3xl font-bold text-slate-900">{stat.value}</div>
+                  <div className="text-sm text-slate-600">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-20">
+      {/* Contact Cards */}
+      <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {contactInfo.map((info, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={info.action}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
               >
-                <Card className="text-center h-full hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
-                      <info.icon className="w-8 h-8 text-primary" />
+                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  <CardContent className="p-6 text-center relative z-10">
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${info.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
+                      <info.icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-lg">{info.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-muted-foreground text-sm">
-                          {detail}
-                        </p>
-                      ))}
-                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{info.title}</h3>
+                    <p className="text-slate-900 font-semibold mb-1">{info.primary}</p>
+                    <p className="text-sm text-slate-600">{info.secondary}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 
-          {/* Contact Form and Map */}
-          <div className="grid lg:grid-cols-2 gap-12">
+          {/* Main Contact Section */}
+          <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="lg:col-span-3"
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageSquare className="w-6 h-6 text-primary" />
-                    Send us a Message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
+              <Card className="border-0 shadow-2xl">
+                <CardContent className="p-8 md:p-12">
+                  <div className="mb-8">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-3">Send us a Message</h2>
+                    <p className="text-slate-600">Fill out the form below and we'll get back to you within 24 hours</p>
+                  </div>
+
                   <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="John" />
+                        <Label htmlFor="firstName" className="text-slate-700 font-semibold">First Name *</Label>
+                        <Input 
+                          id="firstName" 
+                          placeholder="John" 
+                          className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Doe" />
+                        <Label htmlFor="lastName" className="text-slate-700 font-semibold">Last Name *</Label>
+                        <Input 
+                          id="lastName" 
+                          placeholder="Doe" 
+                          className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                        />
                       </div>
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="john@example.com" />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company</Label>
-                      <Input id="company" placeholder="Your Company Name" />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="service">Service Interested In</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {services.map((service, index) => (
-                            <SelectItem key={index} value={service.toLowerCase().replace(/\s+/g, '-')}>
-                              {service}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Project Budget</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-5k">Under $5,000</SelectItem>
-                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                          <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                          <SelectItem value="50k-plus">$50,000+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea 
-                        id="message" 
-                        placeholder="Tell us about your project..."
-                        rows={5}
+                      <Label htmlFor="email" className="text-slate-700 font-semibold">Email Address *</Label>
+                      <Input 
+                        id="email" 
+                        type="email" 
+                        placeholder="john@example.com" 
+                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full" size="lg">
-                      <Send className="w-4 h-4 mr-2" />
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-slate-700 font-semibold">Phone Number</Label>
+                      <Input 
+                        id="phone" 
+                        type="tel" 
+                        placeholder="+1 (555) 123-4567" 
+                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="subject" className="text-slate-700 font-semibold">Subject *</Label>
+                      <Input 
+                        id="subject" 
+                        placeholder="How can we help you?" 
+                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-slate-700 font-semibold">Message *</Label>
+                      <Textarea 
+                        id="message" 
+                        placeholder="Tell us about your project..."
+                        rows={6}
+                        className="border-slate-200 focus:border-purple-500 transition-colors resize-none"
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="submit" 
+                      className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </Button>
+
+                    <p className="text-sm text-slate-500 text-center">
+                      By submitting this form, you agree to our Privacy Policy
+                    </p>
                   </form>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Map and Additional Info */}
+            {/* Side Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="lg:col-span-2 space-y-6"
             >
-              {/* Map */}
-              <Card>
-                <CardContent className="p-0">
-                  <div className="h-64 bg-slate-200 rounded-lg overflow-hidden">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.39619908468154!3d37.79337997975897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807cc8234b9b%3A0xd80b0d2b5b1b0e8d!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1639685234567!5m2!1sen!2sus"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
+              {/* Office Hours */}
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-3">Business Hours</h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Monday - Friday</span>
+                          <span className="font-semibold text-slate-900">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Saturday</span>
+                          <span className="font-semibold text-slate-900">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Sunday</span>
+                          <span className="font-semibold text-slate-900">Closed</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Social Links */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Follow Us</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    {socialLinks.map((social, index) => (
-                      <Button
-                        key={index}
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2"
-                      >
-                        <social.icon className="w-4 h-4" />
-                        {social.name}
-                      </Button>
+              {/* Why Choose Us */}
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-purple-50">
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-slate-900 mb-4">Why Choose Us?</h3>
+                  <div className="space-y-3">
+                    {[
+                      "24/7 Customer Support",
+                      "Fast Response Time",
+                      "Expert Consultation",
+                      "Quality Guaranteed",
+                      "Competitive Pricing"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-slate-700">{item}</span>
+                      </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Quick Contact */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Quick Contact</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Need immediate assistance? Contact us directly:
+              {/* Emergency Contact */}
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-500 to-red-500 text-white">
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-3">Emergency Support</h3>
+                  <p className="text-white/90 mb-4 text-sm">
+                    Need urgent assistance? Our emergency support team is available 24/7
                   </p>
-                  <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call us now: +1 (555) 123-4567
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Email: hello@techcompany.com
-                    </Button>
-                  </div>
+                  <Button variant="secondary" className="w-full bg-white text-slate-900 hover:bg-white/90">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Emergency Line
+                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
@@ -285,11 +328,65 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Section Component */}
-      <ContactSection />
+      {/* Map Section */}
+      <section className="py-20 bg-slate-100">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Visit Our Office</h2>
+            <p className="text-xl text-slate-600">We'd love to meet you in person</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="border-0 shadow-2xl overflow-hidden">
+              <CardContent className="p-0">
+                <div className="h-96 bg-slate-200">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.39619908468154!3d37.79337997975897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807cc8234b9b%3A0xd80b0d2b5b1b0e8d!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1639685234567!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
       <ScrollToTop />
+      
+      {/* WhatsApp Floating Button */}
+      <motion.a
+        href="https://wa.me/917300353111?text=Hi, I'm interested in CodeRaft India services"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 1, type: "spring" }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-green-500 to-emerald-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 group"
+      >
+        <WhatsAppIcon className="w-8 h-8" />
+        <span className="absolute -top-12 right-0 bg-slate-900 text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          Chat on WhatsApp
+        </span>
+      </motion.a>
     </div>
   );
 }

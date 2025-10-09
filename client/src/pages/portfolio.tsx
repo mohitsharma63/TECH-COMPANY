@@ -2,130 +2,184 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { PortfolioSection } from "@/components/portfolio-section";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ExternalLink, Github, Calendar, Users, Award } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ExternalLink, Eye, Award, Users, TrendingUp, Sparkles, Code2, Layers, ShoppingCart, GraduationCap, BarChart3 } from "lucide-react";
+import { useState } from "react";
 
-const portfolioItems = {
-  "mobile": [
-    {
-      title: "HealthTracker Pro",
-      description: "A comprehensive health monitoring app with AI-powered insights",
-      image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["React Native", "Node.js", "MongoDB", "AI/ML"],
-      category: "Healthcare",
-      year: "2023",
-      client: "MedTech Solutions",
-      results: "500K+ downloads, 4.8★ rating"
-    },
-    {
-      title: "EcoCommerce",
-      description: "Sustainable shopping platform with carbon footprint tracking",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Flutter", "Firebase", "Stripe", "Maps API"],
-      category: "E-commerce",
-      year: "2023",
-      client: "GreenTech Inc",
-      results: "200% increase in user engagement"
-    }
-  ],
-  "web": [
-    {
-      title: "FinanceFlow Dashboard",
-      description: "Advanced financial analytics platform for enterprises",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
-      category: "Finance",
-      year: "2023",
-      client: "Capital Ventures",
-      results: "40% faster decision making"
-    },
-    {
-      title: "EduLearn Platform",
-      description: "Interactive online learning management system",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Vue.js", "Laravel", "MySQL", "WebRTC"],
-      category: "Education",
-      year: "2022",
-      client: "EduTech Academy",
-      results: "10,000+ active students"
-    }
-  ],
-  "games": [
-    {
-      title: "Space Odyssey VR",
-      description: "Immersive space exploration game with realistic physics",
-      image: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Unity", "C#", "Oculus SDK", "Photon"],
-      category: "VR Gaming",
-      year: "2023",
-      client: "Cosmos Entertainment",
-      results: "1M+ downloads, Top 10 VR games"
-    },
-    {
-      title: "Puzzle Quest Adventures",
-      description: "Engaging puzzle game with multiplayer features",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Unity", "C#", "Firebase", "Unity Analytics"],
-      category: "Mobile Gaming",
-      year: "2022",
-      client: "GameStudio Pro",
-      results: "2M+ players worldwide"
-    }
-  ]
-};
+const portfolioItems = [
+  {
+    title: "AI-Powered CRM Dashboard",
+    description: "Next-generation CRM with AI insights, sales automation, customer analytics, and predictive forecasting",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["React", "TypeScript", "Node.js", "AI/ML", "Chart.js"],
+    category: "Business Intelligence",
+    year: "2024",
+    client: "TechCorp Solutions",
+    results: "65% productivity boost",
+    rating: "5.0★",
+    gradient: "from-blue-600 to-cyan-600",
+    icon: BarChart3,
+    livePreview: "https://preview.codecanyon.net/item/crm-customer-relationship-management/full_screen_preview/23855970",
+    features: ["AI Analytics", "Sales Pipeline", "Customer Insights", "Revenue Forecasting"]
+  },
+  {
+    title: "Modern E-Commerce Platform",
+    description: "Full-featured online store with real-time inventory, advanced search, wishlist, and multi-payment gateway",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["Next.js", "Stripe", "PostgreSQL", "Tailwind", "Redux"],
+    category: "E-Commerce",
+    year: "2024",
+    client: "ShopHub International",
+    results: "300% revenue growth",
+    rating: "5.0★",
+    gradient: "from-emerald-600 to-teal-600",
+    icon: ShoppingCart,
+    livePreview: "https://preview.themeforest.net/item/evara-multipurpose-ecommerce-html-template/full_screen_preview/26278546",
+    features: ["Product Catalog", "Smart Cart", "Payment Gateway", "Order Management"]
+  },
+  {
+    title: "Smart School Management",
+    description: "Complete education ERP with student portal, online classes, exam system, fee management and reports",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["Vue.js", "Laravel", "MySQL", "Bootstrap", "Zoom API"],
+    category: "Education Tech",
+    year: "2024",
+    client: "EduSmart Academy",
+    results: "95% efficiency increase",
+    rating: "5.0★",
+    gradient: "from-violet-600 to-purple-600",
+    icon: GraduationCap,
+    livePreview: "https://preview.codecanyon.net/item/escola-school-management-system/full_screen_preview/19542988",
+    features: ["Student Portal", "Online Classes", "Exam Module", "Fee Management"]
+  },
+  {
+    title: "Healthcare Management System",
+    description: "Hospital management with patient records, appointment booking, inventory, billing and telemedicine",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["React", "Node.js", "MongoDB", "WebRTC", "PDF"],
+    category: "Healthcare",
+    year: "2024",
+    client: "MediCare Hospital",
+    results: "80% faster workflow",
+    rating: "5.0★",
+    gradient: "from-rose-600 to-pink-600",
+    icon: Code2,
+    livePreview: "https://preview.codecanyon.net/item/hospital-management-system/full_screen_preview/10913242",
+    features: ["Patient Records", "Appointments", "Billing System", "Telemedicine"]
+  },
+  {
+    title: "Real Estate Portal",
+    description: "Property listing platform with virtual tours, advanced filters, agent dashboard and inquiry management",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["React", "Firebase", "Maps API", "3D Tours", "Payment"],
+    category: "Real Estate",
+    year: "2024",
+    client: "PropTech Ventures",
+    results: "150% lead increase",
+    rating: "5.0★",
+    gradient: "from-amber-600 to-orange-600",
+    icon: Layers,
+    livePreview: "https://preview.themeforest.net/item/houzing-real-estate-html-template/full_screen_preview/29518277",
+    features: ["Property Listings", "Virtual Tours", "Agent Portal", "Lead Management"]
+  },
+  {
+    title: "Restaurant POS System",
+    description: "Complete restaurant management with online ordering, kitchen display, inventory and table management",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    technologies: ["Angular", "Node.js", "MySQL", "Printer API", "QR"],
+    category: "Food & Beverage",
+    year: "2024",
+    client: "Foodie Restaurant Chain",
+    results: "70% order accuracy",
+    rating: "5.0★",
+    gradient: "from-red-600 to-orange-600",
+    icon: Code2,
+    livePreview: "https://preview.codecanyon.net/item/restaurant-pos-pointofsale/full_screen_preview/7749129",
+    features: ["POS System", "Online Orders", "Kitchen Display", "Inventory Control"]
+  }
+];
 
 const achievements = [
-  { icon: Award, number: "50+", label: "Projects Completed" },
-  { icon: Users, number: "200+", label: "Happy Clients" },
-  { icon: Calendar, number: "5+", label: "Years Experience" },
-  { icon: Award, number: "25+", label: "Awards Won" }
+  { icon: Award, number: "200+", label: "Projects Delivered", gradient: "from-violet-500 to-purple-500" },
+  { icon: Users, number: "500+", label: "Happy Clients", gradient: "from-blue-500 to-cyan-500" },
+  { icon: TrendingUp, number: "98%", label: "Success Rate", gradient: "from-emerald-500 to-teal-500" },
+  { icon: Sparkles, number: "75+", label: "Awards Won", gradient: "from-orange-500 to-pink-500" }
 ];
 
 export default function Portfolio() {
+  const [selectedProject, setSelectedProject] = useState<typeof portfolioItems[0] | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10" />
+        <div className="absolute inset-0 bg-grid-white/[0.05]" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
-              Showcasing our finest work and successful partnerships
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white px-4 py-1">
+                <Layers className="w-3 h-3 mr-1" />
+                Our Portfolio
+              </Badge>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Enterprise Business
+              <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Solutions
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Explore our flagship business applications with live previews and interactive demos
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Achievements */}
-      <section className="py-16 bg-white">
+      <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                whileHover={{ y: -5 }}
+                className="relative group"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                  <achievement.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-3xl font-bold text-primary mb-2">{achievement.number}</h3>
-                <p className="text-muted-foreground">{achievement.label}</p>
+                <Card className="border-0 bg-gradient-to-br from-white to-slate-50 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-8 text-center">
+                    <div className={`flex items-center justify-center w-16 h-16 bg-gradient-to-r ${achievement.gradient} rounded-2xl mb-4 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <achievement.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className={`text-4xl font-bold mb-2 bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                      {achievement.number}
+                    </h3>
+                    <p className="text-muted-foreground font-medium">{achievement.label}</p>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -133,7 +187,7 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-transparent to-slate-50/50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -142,88 +196,182 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Business <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Applications</span>
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Explore our latest work across different industries and technologies
+              Click on any project to explore live interactive demos
             </p>
           </motion.div>
 
-          <Tabs defaultValue="mobile" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="mobile">Mobile Apps</TabsTrigger>
-              <TabsTrigger value="web">Web Applications</TabsTrigger>
-              <TabsTrigger value="games">Games</TabsTrigger>
-            </TabsList>
-
-            {Object.entries(portfolioItems).map(([category, items]) => (
-              <TabsContent key={category} value={category}>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {items.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.2 }}
-                      viewport={{ once: true }}
-                    >
-                      <Card className="overflow-hidden hover:shadow-xl transition-shadow group">
-                        <div className="relative overflow-hidden">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="absolute bottom-4 left-4 right-4">
-                              <div className="flex gap-2">
-                                <Button size="sm" variant="secondary">
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  Live Demo
-                                </Button>
-                                <Button size="sm" variant="secondary">
-                                  <Github className="w-4 h-4 mr-2" />
-                                  Code
-                                </Button>
-                              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {portfolioItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+                className="group cursor-pointer"
+                onClick={() => setSelectedProject(item)}
+              >
+                <Card className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white h-full">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-0 group-hover:opacity-90 transition-opacity duration-500`} />
+                    
+                    {/* Icon */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <item.icon className="w-20 h-20 text-white" />
+                    </div>
+                    
+                    {/* Action Buttons */}
+                    <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <Button size="sm" variant="secondary" className="shadow-lg">
+                        <Eye className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge className={`bg-gradient-to-r ${item.gradient} text-white border-0`}>
+                        {item.category}
+                      </Badge>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-semibold text-muted-foreground">{item.year}</span>
+                      <span className="text-sm font-bold text-yellow-500">{item.rating}</span>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold mb-3 group-hover:text-violet-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-4">
+                      {item.description}
+                    </p>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">Key Features</p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {item.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center text-xs text-muted-foreground">
+                              <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.gradient} mr-2`} />
+                              {feature}
                             </div>
-                          </div>
+                          ))}
                         </div>
-                        <CardContent className="p-6">
-                          <div className="flex items-center justify-between mb-4">
-                            <Badge variant="outline">{item.category}</Badge>
-                            <span className="text-sm text-muted-foreground">{item.year}</span>
-                          </div>
-                          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground mb-4">{item.description}</p>
-                          <div className="space-y-3">
-                            <div>
-                              <p className="text-sm font-medium text-muted-foreground mb-2">Technologies:</p>
-                              <div className="flex flex-wrap gap-2">
-                                {item.technologies.map((tech, idx) => (
-                                  <Badge key={idx} variant="secondary" className="text-xs">
-                                    {tech}
-                                  </Badge>
-                                ))}
-                              </div>
-                            </div>
-                            <div className="pt-3 border-t">
-                              <p className="text-sm"><span className="font-medium">Client:</span> {item.client}</p>
-                              <p className="text-sm text-green-600 font-medium">{item.results}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </TabsContent>
+                      </div>
+                      
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">Technologies</p>
+                        <div className="flex flex-wrap gap-2">
+                          {item.technologies.slice(0, 3).map((tech, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs border-violet-200 text-violet-700 hover:bg-violet-50">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div className="pt-4 border-t flex items-center justify-between">
+                        <div>
+                          <p className="text-xs text-muted-foreground">Client</p>
+                          <p className="font-semibold text-sm">{item.client}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className={`font-bold text-sm bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                            {item.results}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </Tabs>
+          </div>
         </div>
       </section>
 
-      {/* Portfolio Section Component */}
-      <PortfolioSection />
+      {/* Live Preview Dialog */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-6xl h-[90vh] p-0">
+          <DialogHeader className="px-6 py-4 border-b">
+            <div className="flex items-center justify-between">
+              <div>
+                <DialogTitle className="text-2xl font-bold">{selectedProject?.title}</DialogTitle>
+                <DialogDescription className="text-sm text-muted-foreground mt-1">
+                  {selectedProject?.description}
+                </DialogDescription>
+              </div>
+              <div className="flex gap-2">
+                <Button size="sm" variant="outline" asChild>
+                  <a href={selectedProject?.livePreview} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Open in New Tab
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </DialogHeader>
+          
+          <div className="flex-1 overflow-hidden">
+            {selectedProject && (
+              <iframe
+                src={selectedProject.livePreview}
+                className="w-full h-full border-0"
+                title={selectedProject.title}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* CTA Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600" />
+        <div className="absolute inset-0 bg-grid-white/[0.05]" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center text-white max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Let's build a custom solution tailored to your business needs
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                <Sparkles className="w-5 h-5 mr-2" />
+                Start Your Project
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-violet-600 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                <Eye className="w-5 h-5 mr-2" />
+                Schedule Demo
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
       <ScrollToTop />

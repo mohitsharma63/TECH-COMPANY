@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Logo } from "@/components/logo";
 
 const services = [
   "Mobile App Development",
@@ -28,9 +29,7 @@ export function Footer() {
               transition={{ duration: 0.6 }}
               className="mb-6"
             >
-              <span className="text-3xl font-bold gradient-text">
-                Synarion IT Solutions
-              </span>
+              <Logo size="md" showText={true} />
             </motion.div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -38,8 +37,8 @@ export function Footer() {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-slate-300 mb-6 leading-relaxed"
             >
-              Digital transformation company empowering businesses worldwide with 
-              innovative technology solutions since 2017.
+              Leading Indian software development company crafting innovative digital solutions 
+              for businesses worldwide since 2020. Your trusted technology partner.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -115,7 +114,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 Synarion IT Solutions. All rights reserved.
+              © 2024 CodeRaft India. All rights reserved. Made with ❤️ in India
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-slate-400">
               <a href="#" className="hover:text-white transition-colors">

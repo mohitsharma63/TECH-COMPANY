@@ -1,111 +1,216 @@
-
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { MissionVisionSection } from "@/components/mission-vision-section";
-import { StatsSection } from "@/components/stats-section";
 import { motion } from "framer-motion";
-import { Users, Award, Globe, Clock } from "lucide-react";
+import { Users, Award, Globe, Clock, Rocket, Target, Heart, Shield, Zap, TrendingUp, CheckCircle, Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
   {
-    name: "John Smith",
+    name: "Alex Rodriguez",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-    bio: "Visionary leader with 15+ years in tech innovation"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    bio: "Visionary leader with 15+ years driving digital transformation",
+    specialties: ["Strategy", "Innovation", "Leadership"]
   },
   {
-    name: "Sarah Johnson",
-    role: "CTO",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-    bio: "Technical expert specializing in scalable solutions"
+    name: "Sarah Chen",
+    role: "Chief Technology Officer",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    bio: "Tech architect specializing in scalable enterprise solutions",
+    specialties: ["Architecture", "Cloud", "AI/ML"]
   },
   {
-    name: "Mike Chen",
-    role: "Lead Designer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-    bio: "Creative designer with passion for user experience"
+    name: "Michael Thompson",
+    role: "Creative Director",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    bio: "Award-winning designer creating exceptional user experiences",
+    specialties: ["UI/UX", "Branding", "Product Design"]
+  },
+  {
+    name: "Emily Watson",
+    role: "Head of Operations",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    bio: "Operations expert ensuring seamless project delivery",
+    specialties: ["Agile", "Quality", "Process"]
   }
+];
+
+const milestones = [
+  { year: "2018", title: "Company Founded", description: "Started with a vision to transform digital experiences" },
+  { year: "2020", title: "Global Expansion", description: "Expanded operations to 10+ countries worldwide" },
+  { year: "2022", title: "ISO Certified", description: "Achieved ISO 9001:2015 quality certification" },
+  { year: "2024", title: "Industry Leader", description: "Recognized as top innovator with 500+ projects delivered" }
+];
+
+const values = [
+  {
+    icon: Target,
+    title: "Client-Centric",
+    description: "Your success is our priority. We build solutions that drive real business results.",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: Rocket,
+    title: "Innovation First",
+    description: "We leverage cutting-edge technologies to stay ahead of the curve.",
+    gradient: "from-purple-500 to-pink-500"
+  },
+  {
+    icon: Heart,
+    title: "Quality Obsessed",
+    description: "Excellence in every line of code, every pixel, every interaction.",
+    gradient: "from-rose-500 to-red-500"
+  },
+  {
+    icon: Shield,
+    title: "Trust & Integrity",
+    description: "Building lasting relationships through transparency and reliability.",
+    gradient: "from-emerald-500 to-teal-500"
+  }
+];
+
+const stats = [
+  { icon: Users, value: "500+", label: "Projects Delivered", color: "text-blue-500" },
+  { icon: Globe, value: "10+", label: "Countries Served", color: "text-purple-500" },
+  { icon: Award, value: "50+", label: "Industry Awards", color: "text-amber-500" },
+  { icon: Star, value: "98%", label: "Client Satisfaction", color: "text-emerald-500" }
 ];
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10" />
+        <div className="absolute inset-0 bg-grid-white/[0.05]" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">About Us</h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
-              We're a passionate team of innovators dedicated to transforming ideas into digital reality
-            </p>
+            <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white px-4 py-1 mb-6">
+              <Zap className="w-3 h-3 mr-1" />
+              About Us
+            </Badge>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                Proudly Crafting from
+                <br />
+                <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">🇮🇳 India to the World</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                CodeRaft India is your trusted technology partner, combining Indian talent,
+                innovation, and cost-effectiveness to deliver world-class digital solutions globally.
+              </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Company Story */}
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <Icon className={`w-12 h-12 mx-auto mb-4 ${stat.color}`} />
+                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</h3>
+                  <p className="text-slate-300">{stat.label}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Founded in 2018, our company began with a simple mission: to bridge the gap between 
-                innovative technology and practical business solutions. What started as a small team 
-                of passionate developers has grown into a full-service technology partner.
+              <Badge className="bg-violet-500/10 text-violet-600 mb-4">Our Journey</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                From Startup to <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Industry Leader</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                What began as a small team of passionate developers in 2018 has evolved into a global technology powerhouse. We started with a simple belief: that exceptional digital experiences can transform businesses.
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                Today, we've helped over 200+ businesses transform their digital presence, 
-                delivering cutting-edge solutions that drive growth and success.
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Today, we're proud to serve clients across 10+ countries, delivering innovative solutions that drive real business results. Our journey is defined by continuous innovation, unwavering quality, and a commitment to our clients' success.
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-3 mx-auto">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold">200+</h3>
-                  <p className="text-sm text-muted-foreground">Happy Clients</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-3 mx-auto">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold">50+</h3>
-                  <p className="text-sm text-muted-foreground">Awards Won</p>
-                </div>
+
+              <div className="space-y-4">
+                {[
+                  "ISO 9001:2015 Certified Quality",
+                  "500+ Successful Projects",
+                  "98% Client Retention Rate",
+                  "24/7 Global Support"
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="relative"
             >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Our team"
-                className="rounded-2xl shadow-xl"
-              />
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Our team collaboration"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-violet-600/20 to-transparent" />
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-2xl max-w-xs">
+                <div className="flex items-center gap-3 mb-2">
+                  <TrendingUp className="w-8 h-8 text-emerald-500" />
+                  <div>
+                    <p className="text-2xl font-bold text-emerald-500">300%</p>
+                    <p className="text-sm text-muted-foreground">Growth in 2024</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <MissionVisionSection />
-
-      {/* Team Section */}
+      {/* Values Section */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -115,37 +220,113 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
+            <Badge className="bg-violet-500/10 text-violet-600 mb-4">Our Values</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              What Drives Us <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Forward</span>
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The brilliant minds behind our innovative solutions
+              Our core values shape every decision and guide our commitment to excellence
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="h-full border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <CardContent className="p-6">
+                      <div className={`bg-gradient-to-r ${value.gradient} p-3 rounded-xl w-14 h-14 flex items-center justify-center mb-4`}>
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{value.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="bg-violet-500/10 text-violet-600 mb-4">Our Milestones</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Journey of <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Innovation</span>
+            </h2>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            {milestones.map((milestone, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                className="relative pl-8 pb-12 border-l-2 border-violet-200 last:pb-0"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold text-center mb-2">{member.name}</h3>
-                <p className="text-primary text-center mb-3">{member.role}</p>
-                <p className="text-muted-foreground text-center text-sm">{member.bio}</p>
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-violet-600 to-purple-600" />
+                <div className="bg-white p-6 rounded-xl shadow-lg ml-6">
+                  <Badge className="bg-violet-500/10 text-violet-600 mb-2">{milestone.year}</Badge>
+                  <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
+                  <p className="text-muted-foreground">{milestone.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <StatsSection />
+      {/* Team Section */}
+      
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-violet-600 to-purple-600 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-grid-white/[0.05]" />
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Work Together?
+              </h2>
+              <p className="text-xl text-violet-100 mb-8 max-w-2xl mx-auto">
+                Let's transform your vision into reality with cutting-edge technology and exceptional design
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-shadow"
+              >
+                Start Your Project
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
       <ScrollToTop />
     </div>
