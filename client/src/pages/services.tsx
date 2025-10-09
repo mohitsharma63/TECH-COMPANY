@@ -181,8 +181,9 @@ export default function Services() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <main id="main-content" className="pt-20">
+        {/* Hero Section */}
+        <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-purple-600/10 to-pink-600/10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -235,17 +236,17 @@ export default function Services() {
                   transition={{ duration: 0.8, delay: serviceIndex * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm relative overflow-hidden group">
+                  <Card className="h-full hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm relative overflow-hidden group hover:scale-[1.02] cursor-pointer">
                     {service.popular && (
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-gradient-to-r from-violet-500 to-purple-600 text-white border-0">
+                      <div className="absolute top-4 right-4 z-10">
+                        <Badge className="bg-gradient-to-r from-violet-500 to-purple-600 text-white border-0 shadow-lg">
                           <Sparkles className="w-3 h-3 mr-1" />
                           Popular
                         </Badge>
                       </div>
                     )}
                     
-                    <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                     
                     <CardHeader>
                       <div className="flex items-start gap-4 mb-4">
@@ -286,8 +287,6 @@ export default function Services() {
                             ))}
                           </div>
                         </div>
-                        
-                        
                       </div>
                     </CardContent>
                   </Card>
@@ -377,8 +376,10 @@ export default function Services() {
           </motion.div>
         </div>
       </section>
+      </main>
 
-     
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { useCounterAnimation } from "@/hooks/use-counter-animation";
 export function ContactSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(ref, { threshold: 0.2 });
-  
+
   const projectsCount = useCounterAnimation(500, 2000, isVisible);
   const clientsCount = useCounterAnimation(215, 2000, isVisible);
   const teamCount = useCounterAnimation(50, 2000, isVisible);

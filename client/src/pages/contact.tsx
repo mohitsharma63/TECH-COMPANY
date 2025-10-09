@@ -77,6 +77,7 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <Navbar />
       
+      <main id="main-content">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
@@ -178,14 +179,19 @@ export default function Contact() {
                     <p className="text-slate-600">Fill out the form below and we'll get back to you within 24 hours</p>
                   </div>
 
-                  <form className="space-y-6">
+                  <form className="space-y-6" onSubmit={(e) => {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you within 24 hours.');
+                  }}>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="firstName" className="text-slate-700 font-semibold">First Name *</Label>
                         <Input 
                           id="firstName" 
                           placeholder="John" 
-                          className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                          required
+                          aria-required="true"
+                          className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                         />
                       </div>
                       <div className="space-y-2">
@@ -193,7 +199,9 @@ export default function Contact() {
                         <Input 
                           id="lastName" 
                           placeholder="Doe" 
-                          className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                          required
+                          aria-required="true"
+                          className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                         />
                       </div>
                     </div>
@@ -204,7 +212,9 @@ export default function Contact() {
                         id="email" 
                         type="email" 
                         placeholder="john@example.com" 
-                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                        required
+                        aria-required="true"
+                        className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                       />
                     </div>
                     
@@ -213,8 +223,8 @@ export default function Contact() {
                       <Input 
                         id="phone" 
                         type="tel" 
-                        placeholder="+1 (555) 123-4567" 
-                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                        placeholder="+91 (XXX) XXX-XXXX" 
+                        className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                       />
                     </div>
                     
@@ -223,7 +233,9 @@ export default function Contact() {
                       <Input 
                         id="subject" 
                         placeholder="How can we help you?" 
-                        className="h-12 border-slate-200 focus:border-purple-500 transition-colors"
+                        required
+                        aria-required="true"
+                        className="h-12 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
                       />
                     </div>
                     
@@ -233,20 +245,22 @@ export default function Contact() {
                         id="message" 
                         placeholder="Tell us about your project..."
                         rows={6}
-                        className="border-slate-200 focus:border-purple-500 transition-colors resize-none"
+                        required
+                        aria-required="true"
+                        className="border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all resize-none"
                       />
                     </div>
                     
                     <Button 
                       type="submit" 
-                      className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </Button>
 
                     <p className="text-sm text-slate-500 text-center">
-                      By submitting this form, you agree to our Privacy Policy
+                      By submitting this form, you agree to our <a href="#" className="text-purple-600 hover:underline">Privacy Policy</a>
                     </p>
                   </form>
                 </CardContent>
@@ -350,6 +364,7 @@ export default function Contact() {
           Chat on WhatsApp
         </span>
       </motion.a>
+      </main>
     </div>
   );
 }

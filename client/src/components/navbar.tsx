@@ -29,15 +29,24 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-gradient-to-r from-violet-950 via-purple-950 to-indigo-950 backdrop-blur-xl shadow-lg border-b border-violet-500/20"
-          : "bg-gradient-to-r from-violet-950/95 via-purple-950/95 to-indigo-950/95 backdrop-blur-sm border-b border-violet-500/10"
-      }`}
-    >
+    <>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold"
+      >
+        Skip to main content
+      </a>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-gradient-to-r from-violet-950 via-purple-950 to-indigo-950 backdrop-blur-xl shadow-lg border-b border-violet-500/20"
+            : "bg-gradient-to-r from-violet-950/95 via-purple-950/95 to-indigo-950/95 backdrop-blur-sm border-b border-violet-500/10"
+        }`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -56,21 +65,24 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-1">
+            <div className="ml-10 flex items-center space-x-1" role="menubar">
               {navigationItems.map((item, index) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  role="none"
                 >
                   <Link
                     href={item.href}
-                    className={`relative px-4 py-2 rounded-lg transition-all duration-300 font-medium text-base ${
+                    className={`relative px-4 py-2 rounded-lg transition-all duration-300 font-medium text-base focus:outline-none focus:ring-2 focus:ring-white/50 ${
                       location === item.href
                         ? "text-white bg-gradient-primary"
                         : "text-slate-200 hover:text-white hover:bg-white/10"
                     }`}
+                    role="menuitem"
+                    aria-current={location === item.href ? "page" : undefined}
                   >
                     {item.name}
                     {location === item.href && (
@@ -150,5 +162,6 @@ export function Navbar() {
         </div>
       </div>
     </motion.nav>
+    </>
   );
 }

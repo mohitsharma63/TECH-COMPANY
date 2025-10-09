@@ -117,6 +117,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
+      <main id="main-content">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10" />
@@ -215,6 +216,15 @@ export default function Portfolio() {
                 whileHover={{ y: -8 }}
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(item)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedProject(item);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${item.title} project details`}
               >
                 <Card className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white h-full">
                   <div className="relative overflow-hidden">
@@ -372,6 +382,7 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
+      </main>
 
       <Footer />
       <ScrollToTop />

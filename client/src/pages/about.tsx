@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { motion } from "framer-motion";
-import { Users, Award, Globe, Clock, Rocket, Target, Heart, Shield, Zap, TrendingUp, CheckCircle, Star } from "lucide-react";
+import { Users, Award, Globe, Clock, Rocket, Target, Heart, Shield, Zap, TrendingUp, CheckCircle, Star, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -82,7 +82,8 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
+      
+      <main id="main-content">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10" />
@@ -298,7 +299,7 @@ export default function About() {
       
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20" aria-label="Call to Action">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -315,17 +316,32 @@ export default function About() {
               <p className="text-xl text-violet-100 mb-8 max-w-2xl mx-auto">
                 Let's transform your vision into reality with cutting-edge technology and exceptional design
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-shadow"
-              >
-                Start Your Project
-              </motion.button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = '/contact'}
+                  className="bg-white text-violet-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-shadow"
+                  aria-label="Start your project"
+                >
+                  Start Your Project
+                  <ArrowRight className="inline-block w-5 h-5 ml-2" />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = '/portfolio'}
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all"
+                  aria-label="View our portfolio"
+                >
+                  View Portfolio
+                </motion.button>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
+      </main>
 
       <Footer />
       <ScrollToTop />

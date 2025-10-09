@@ -11,7 +11,8 @@ import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { motion } from "framer-motion";
-import { Shield, Zap, Award, HeadphonesIcon, Globe, TrendingUp } from "lucide-react";
+import { Shield, Zap, Award, HeadphonesIcon, Globe, TrendingUp, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Services from "./services";
 
 const WhyChooseUs = () => {
@@ -55,7 +56,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" aria-label="Why Choose Us">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,7 +73,7 @@ const WhyChooseUs = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -82,10 +83,12 @@ const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
-                className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 bg-white/5 backdrop-blur-sm border border-white/10"
+                className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300 bg-white/5 backdrop-blur-sm border border-white/10 cursor-pointer group"
+                role="article"
+                aria-label={feature.title}
               >
-                <div className={`bg-gradient-to-r ${feature.color} p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6`}>
-                  <Icon className="w-8 h-8 text-white" />
+                <div className={`bg-gradient-to-r ${feature.color} p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-8 h-8 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   {feature.title}
@@ -97,6 +100,23 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
+            onClick={() => window.location.href = '/contact'}
+          >
+            Get Started Today
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
@@ -106,15 +126,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
-      <AwardsSection />
-      <WhyChooseUs />
-      <Services />
-      <MissionVisionSection />
-      <IndustriesSection />
-      <ContactSection />
-      <Footer />
-      <ScrollToTop />
+      <main id="main-content" className="pb-0">
+        <HeroSection />
+        <AwardsSection />
+        <WhyChooseUs />
+        <MissionVisionSection />
+        <IndustriesSection />
+        <ContactSection />
+        <Services />
+
+      </main>
+      
     </div>
   );
 }
